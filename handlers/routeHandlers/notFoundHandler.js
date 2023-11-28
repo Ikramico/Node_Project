@@ -5,8 +5,8 @@
 const Handler ={};
 
 Handler.notFoundHandler=(reqProps, callback)=>{
-    callback(200, {
-        message: 'This is working',
+    callback(404, {
+        message: 'This page is not found',
     });
     console.log(reqProps);
 }

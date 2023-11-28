@@ -29,23 +29,22 @@ handler.handleReqRes = (req, res)=>{
     req.on('data', (buffer)=>{
         contData += decoder.write(buffer);
     });
-    chosenHandler(reqProps, (status, payload) =>{
-        status = typeof(status)==='number'?status:500;
-        payload = typeof(payload)==='object'?payload:{};
-
-        const payloadString = JSON.stringify(payload);
-
-        //response
-        res.writeHead(status);
-        res.end(payloadString);
-    });
 
 
     req.on('end', ()=>{
         contData += decoder.end;
-        console.log(contData);
+        chosenHandler(reqProps, (status, payload) =>{
+            status = typeof(status)==='number'?status:500;
+            payload = typeof(payload)==='object'?payload:{};
+    
+            const payloadString = JSON.stringify(payload);
+    
+            //response
+            res.writeHead(status);
+            res.end(payloadString);
+        });
     //response handle
-    res.end("What's Up!!!");
+    
     })
     
 };
