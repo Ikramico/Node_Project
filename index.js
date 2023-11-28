@@ -6,13 +6,13 @@ Category: Practice
 */
 //Dependencies
 const http = require('http');
-
+const {handleReqRes} = require('./helpers/handleReqRes');
 //Scaffolding
 const app ={};
 
 //configuaration
 app.config = {
-    port: 6000
+    port: 4000
 };
 
 //Create Server
@@ -23,8 +23,6 @@ app.createServer =()=>{
     })
 }
 //handle request response
-app.reqResHandler= (req, res)=>{
-    res.end("What's Up!!!");
-};
+app.reqResHandler= handleReqRes;
 //start server
 app.createServer();
