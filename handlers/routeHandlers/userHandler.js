@@ -1,14 +1,14 @@
 /**
- * Title: User Handler
+ * Title: User handler
  */
 
-const handler = require("../../helpers/handleReqRes");
+const { hash } = require("../../helpers/utilities");
 const {data} = require('../../lib/data');
 
 //scaffolding
-const Handler ={};
+const handler ={};
 
-Handler.userHandler=(reqProps, callback)=>{
+handler.userHandler=(reqProps, callback)=>{
     const acceptedMethods=['GET','POST','PUT','DELETE'];
     if(acceptedMethods.indexOf(reqProps.method)>=0){
        handler._users[reqProps.method](reqProps,callback);
@@ -36,7 +36,7 @@ handler._users.post = (reqProps,callback)=>{
     reqProps.body.password.trim()>0? reqProps.body.password: 'Type your password';
 
     const tosAgree = 
-    typeof (reqProps.body.tosAgree)==='string' && 
+    typeof (reqProps.body.tosAgree)===Boolean && 
     reqProps.body.tosAgree.trim()>0? reqProps.body.tosAgree: false;
 
     if(firstName && lastName && password && phone && tosAgree){
@@ -45,9 +45,17 @@ handler._users.post = (reqProps,callback)=>{
                 firstName,
                 lastName,
                 phone,
-                password,
+                password:hash(password),
                 tosAgree
-            }
+            };
+            data.create('users',phone, (err)=>{
+                if(!err){
+                    console.log('User created succesfully')
+                }
+                else{
+                    console.log(error.message);
+                }
+            })
         })
     }
     else{
@@ -64,4 +72,4 @@ handler._users.get = (reqProps,callback)=>{
 
 };
 
-module.exports = Handler;
+module.exports = handler;
