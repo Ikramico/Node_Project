@@ -2,8 +2,8 @@
  * Title: User handler
  */
 
-const { hash } = require("../../helpers/utilities");
 const {data} = require('../../lib/data');
+const {hash} = require('../../helpers/utilities');
 
 //scaffolding
 const handler ={};
@@ -50,7 +50,7 @@ handler.userHandler=(reqProps, callback)=>{
                         else{
                             console.log(err.message + "couldn't create user");
                         }
-                    })
+                    });
                     }
                     else{
                         callback(err.message+'server side problem')
@@ -59,7 +59,7 @@ handler.userHandler=(reqProps, callback)=>{
                 });
             }
             else{
-                callback(error.message);
+                callback(error.message + 'request problem');
             }
         },
        };
@@ -80,4 +80,4 @@ handler.userHandler=(reqProps, callback)=>{
 
 // };
 
-module.exports = handler;
+module.exports= handler;
