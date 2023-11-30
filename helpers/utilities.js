@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const environments = require('./environment');
 //parse json to string
 utilities.parseJSON = (jsonString)=>{ 
-    let output ={};
+    let output;
 
     try{
         output = JSON.parse(jsonString);
