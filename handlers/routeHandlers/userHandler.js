@@ -1,6 +1,5 @@
 const { data } = require('../../lib/data');
 const { hash } = require('../../helpers/utilities');
-
 // scaffolding
 const handler = {};
 
@@ -50,9 +49,9 @@ handler.userHandler = (reqProps, callback) => {
                             };
                             data.create('users', phone, userObject, (err) => {
                                 if (!err) {
-                                    console.log('User created successfully');
+                                    callback('User created successfully');
                                 } else {
-                                    console.log(
+                                    callback(
                                         err.message + "couldn't create user"
                                     );
                                 }
