@@ -69,15 +69,16 @@ handler.userHandler = (reqProps, callback) => {
         //     //     // }
         //     // },
         // };
-        handler._users.reqProps.method(reqProps, callback)
+        handler._users[reqProps.method](reqProps, callback);
+        handler._users ={};
+    handler._users.POST = (reqProps, callback)=>{
+        callback(reqProps);
+    }
     }
      else {
         callback(405);
     }
-    handler._users ={};
-    handler._users.POST = (reqProps, callback)=>{
-        callback(reqProps);
-    }
+    
 };
 
 module.exports = handler;
