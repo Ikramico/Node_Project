@@ -11,7 +11,7 @@ environments.staging= {
 environments.production= {
     port: 5500,
     envName: 'production',
-    secretkey: 'your business secret'
+    secretkey: 'secret'
 }
 
 const currentEnv = typeof(process.env.NODE_ENV)==='string'

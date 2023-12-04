@@ -48,6 +48,7 @@ handler.handleReqRes = (req, res) => {
             res.end(payloadString);
         });
         // response handle
+        res.end();
     });
 };
 

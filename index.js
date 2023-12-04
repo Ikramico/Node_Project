@@ -22,22 +22,22 @@ const app ={};
     
 // }
 // )
-data.read('test', 'sample',(err,output)=>{
-    console.log(err,output);
+// data.read('test', 'sample',(err,output)=>{
+//     console.log(err,output);
 
-data.update('test', 'sample', {'category':'Updated test', 'file-type':'json', 'work':'update'},
-(err)=>{
-    if(err){
-        console.log(`error is here ${err}`);
-    }
-    else console.log('no error');
+// data.update('test', 'sample', {'category':'Updated test', 'file-type':'json', 'work':'update'},
+// (err)=>{
+//     if(err){
+//         console.log(`error is here ${err}`);
+//     }
+//     else console.log('no error');
     
-}
-)
-data.delete('test','sample',(err)=>{
-    console.log('error is ', err)
-})
-})
+// }
+// )
+// data.delete('test','sample',(err)=>{
+//     console.log('error is ', err)
+// })
+// })
 //configuaration
 
 
