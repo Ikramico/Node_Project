@@ -69,14 +69,15 @@ handler.userHandler = (reqProps, callback) => {
         //     //     // }
         //     // },
         // };
-        handler._users[reqProps.method](reqProps, callback);
-        handler._users ={};
-    handler._users.POST = (reqProps, callback)=>{
-        callback(reqProps);
-    }
+        
+ handler._users[reqProps.method](reqProps, callback);
     }
      else {
         callback(405);
+    } 
+    handler._users ={};
+    handler._users.POST = (reqProps, callback)=>{
+        callback(reqProps);
     }
     
 };
