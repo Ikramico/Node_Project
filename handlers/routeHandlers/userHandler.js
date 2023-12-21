@@ -6,7 +6,7 @@ const handler = {};
 handler.userHandler = (reqProps, callback) => {
     const acceptedMethods = ['GET', 'POST', 'PUT', 'DELETE'];
     
-    
+    handler._users ={};
     if (acceptedMethods.includes(reqProps.method)) {
         console.log('working');
         // handler._users = {
@@ -75,7 +75,7 @@ handler.userHandler = (reqProps, callback) => {
      else {
         callback(405);
     } 
-    handler._users ={};
+    
     handler._users.POST = (reqProps, callback)=>{
         callback(reqProps);
     }
